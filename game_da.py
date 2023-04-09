@@ -31,8 +31,25 @@ r3 = Road(8,8,8,100,270, 5, 540)
 r4 = Road(8,8,8,160,220, 5, 540)
 r5 = Road(8,8,8,700,220, 270, 5)
 r6 = Road(8,8,8,640,270, 160, 5)
-r7 = Road(8,8,8,500,485, 5, 200)
+r7 = Road(8,8,8,400,485, 5, 300)
 r8 = Road(8,8,8,320,425, 5, 320)
+r8 = Road(8,8,8,320,425, 5, 320)
+r9 = Road(8,8,8,320,425, 150, 5)
+r10 = Road(8,8,8,400,490, 155, 5)
+r11 = Road(8,8,8,50,640, 5, 355)
+r12 = Road(8,8,8,50,570, 5, 270)
+
+class GameSprite(sprite.Sprite):
+    def __init__(self, player_image, x, y, windth, height, speed):
+        self.image = transform.scale(image.load(player_image), (windth, height))
+        self.speed = speed
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+    def reset(self):
+        window.blit(self.image, (self.rect.x, self.rect.y))
+
+goal = GameSprite('cel.png', 50, 580, 50, 50, 0)
 
 game = True
 finish = False
@@ -51,4 +68,10 @@ while game:
         r6.draw_road()
         r7.draw_road()
         r8.draw_road()
+        r9.draw_road()
+        r10.draw_road()
+        r11.draw_road()
+        r12.draw_road()
+        goal.reset()
+    clock.tick(60)
     display.update()
