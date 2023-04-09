@@ -51,6 +51,37 @@ class GameSprite(sprite.Sprite):
 
 goal = GameSprite('cel.png', 50, 580, 50, 50, 0)
 
+class Player(GameSprite):
+    def update_player(self):
+        keys = key.get_pressed()
+        if keys[K_UP] and self.rect.y > 5:
+            self.rect.y -= self.speed
+        if keys[K_DOWN] and self.rect.y < win_height - 40:
+            self.rect.y += self.speed
+        if keys[K_LEFT] and self.rect.x > 5:
+            self.rect.x -= self.speed
+        if keys[K_RIGHT] and self.rect.x < win_windth - 40:
+            self.rect.x += self.speed
+
+    def update_enemy(self):
+        keys = key.get_pressed()
+        if keys[K_w] and self.rect.y > 5:
+            self.rect.y -= self.speed
+        if keys[K_s] and self.rect.y < win_height - 40:
+            self.rect.y += self.speed
+        if keys[K_a] and self.rect.x > 5:
+            self.rect.x -= self.speed
+        if keys[K_d] and self.rect.x < win_windth - 40:
+            self.rect.x += self.speed
+
+player = Player('player.png', 120, 60, 30, 30, 5)
+player2 = Player('rab_stol.png', 120, 20, 30, 30, 5)
+
+font.init()
+font1 = font.SysFont('Arial', 70)
+lose = font1.render('хахаха', True, (180,0,0))
+win = font1.render('ок', True, (180,0,0))
+
 game = True
 finish = False
 while game:
@@ -73,5 +104,52 @@ while game:
         r11.draw_road()
         r12.draw_road()
         goal.reset()
+        player.reset()
+        player.update_player()
+        player2.reset()
+        player2.update_enemy()
+
+    if sprite.collide_rect(player, goal):
+        finish = True
+        window.blit(win, (350, 300))
+    if sprite.collide_rect(player, player2):
+        finish = True
+        window.blit(lose, (300, 300))
+    if sprite.collide_rect(player, r1):
+        finish = True
+        window.blit(lose, (300, 300))
+    if sprite.collide_rect(player, r2):
+        finish = True
+        window.blit(lose, (300, 300))
+    if sprite.collide_rect(player, r3):
+        finish = True
+        window.blit(lose, (300, 300)) 
+    if sprite.collide_rect(player, r4):
+        finish = True
+        window.blit(lose, (300, 300))
+    if sprite.collide_rect(player, r5):
+        finish = True
+        window.blit(lose, (300, 300))
+    if sprite.collide_rect(player, r6):
+        finish = True
+        window.blit(lose, (300, 300))
+    if sprite.collide_rect(player, r7):
+        finish = True
+        window.blit(lose, (300, 300))  
+    if sprite.collide_rect(player, r8):
+        finish = True
+        window.blit(lose, (300, 300))
+    if sprite.collide_rect(player, r9):
+        finish = True
+        window.blit(lose, (300, 300))
+    if sprite.collide_rect(player, r10):
+        finish = True
+        window.blit(lose, (300, 300))
+    if sprite.collide_rect(player, r11):
+        finish = True
+        window.blit(lose, (300, 300))
+    if sprite.collide_rect(player, r12):
+        finish = True
+        window.blit(lose, (300, 300))
     clock.tick(60)
     display.update()
