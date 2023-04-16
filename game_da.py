@@ -50,6 +50,17 @@ class GameSprite(sprite.Sprite):
         window.blit(self.image, (self.rect.x, self.rect.y))
 
 goal = GameSprite('cel.png', 50, 580, 50, 50, 0)
+tr1 = GameSprite('bbe.jpg', 90, 200, 30 , 50, 0)
+tr2 = GameSprite('bbe.jpg', 200, 200, 50 , 30, 0)
+tr3 = GameSprite('bbe.jpg', 320, 265, 50 , 30, 0)
+tr4 = GameSprite('bbe.jpg', 600, 200, 50 , 30, 0)
+tr5 = GameSprite('bbe.jpg', 630, 330, 30 , 50, 0)
+tr6 = GameSprite('bbe.jpg', 630, 475, 50 , 30, 0)
+tr7 = GameSprite('bbe.jpg', 470, 410, 50 , 30, 0)
+tr8 = GameSprite('bbe.jpg', 310, 460, 30 , 50, 0)
+tr9 = GameSprite('bbe.jpg', 300, 620, 50 , 30, 0)
+energ = GameSprite('energ.png', 260, 230, 50 , 50, 0)
+energ2 = GameSprite('energ.png', 260, 570, 50 , 50, 0)
 
 class Player(GameSprite):
     def update_player(self):
@@ -80,7 +91,7 @@ player2 = Player('rab_stol.png', 120, 20, 30, 30, 5)
 font.init()
 font1 = font.SysFont('Arial', 70)
 lose = font1.render('хахаха', True, (180,0,0))
-win = font1.render('ок', True, (180,0,0))
+win = font1.render('ПОБЕДА!!!', True, (190,0,0))
 
 game = True
 finish = False
@@ -108,6 +119,17 @@ while game:
         player.update_player()
         player2.reset()
         player2.update_enemy()
+        tr1.reset()
+        tr2.reset()
+        tr3.reset()
+        tr4.reset()
+        tr5.reset()
+        tr6.reset()
+        tr7.reset()
+        tr8.reset()
+        tr9.reset()
+        energ.reset()
+        energ2.reset()
 
     if sprite.collide_rect(player, goal):
         finish = True
@@ -151,5 +173,112 @@ while game:
     if sprite.collide_rect(player, r12):
         finish = True
         window.blit(lose, (300, 300))
+    if sprite.collide_rect(player2, r1):
+        finish = True
+        window.blit(win, (300, 300))
+    if sprite.collide_rect(player2, r2):
+        finish = True
+        window.blit(win, (300, 300))
+    if sprite.collide_rect(player2, r3):
+        finish = True
+        window.blit(win, (300, 300))
+    if sprite.collide_rect(player2, r4):
+        finish = True
+        window.blit(win, (300, 300))
+    if sprite.collide_rect(player2, r5):
+        finish = True
+        window.blit(win, (300, 300))
+    if sprite.collide_rect(player2, r6):
+        finish = True
+        window.blit(win, (300, 300))
+    if sprite.collide_rect(player2, r7):
+        finish = True
+        window.blit(win, (300, 300))
+    if sprite.collide_rect(player2, r8):
+        finish = True
+        window.blit(win, (300, 300))
+    if sprite.collide_rect(player2, r9):
+        finish = True
+        window.blit(win, (300, 300))
+    if sprite.collide_rect(player2, r10):
+        finish = True
+        window.blit(win, (300, 300))
+    if sprite.collide_rect(player2, r11):
+        finish = True
+        window.blit(win, (300, 300))
+    if sprite.collide_rect(player2, r12):
+        finish = True
+        window.blit(win, (300, 300))
+    if sprite.collide_rect(player, tr1):
+        finish = True
+        window.blit(lose,(300,300))
+    if sprite.collide_rect(player, tr2):
+        finish = True
+        window.blit(lose,(300,300))
+    if sprite.collide_rect(player, tr3):
+        finish = True
+        window.blit(lose,(300,300))
+    if sprite.collide_rect(player, tr4):
+        finish = True
+        window.blit(lose,(300,300))
+    if sprite.collide_rect(player, tr5):
+        finish = True
+        window.blit(lose,(300,300))
+    if sprite.collide_rect(player, tr6):
+        finish = True
+        window.blit(lose,(300,300))
+    if sprite.collide_rect(player, tr7):
+        finish = True
+        window.blit(lose,(300,300))
+    if sprite.collide_rect(player, tr8):
+        finish = True
+        window.blit(lose,(300,300))
+    if sprite.collide_rect(player, tr9):
+        finish = True
+        window.blit(lose,(300,300))
+    if sprite.collide_rect(player2, tr1):
+        finish = True
+        window.blit(win,(300,300))
+    if sprite.collide_rect(player2, tr2):
+        finish = True
+        window.blit(win,(300,300))
+    if sprite.collide_rect(player2, tr3):
+        finish = True
+        window.blit(win,(300,300))
+    if sprite.collide_rect(player2, tr4):
+        finish = True
+        window.blit(win,(300,300))
+    if sprite.collide_rect(player2, tr5):
+        finish = True
+        window.blit(win,(300,300))
+    if sprite.collide_rect(player2, tr6):
+        finish = True
+        window.blit(win,(300,300))
+    if sprite.collide_rect(player2, tr7):
+        finish = True
+        window.blit(win,(300,300))
+    if sprite.collide_rect(player2, tr8):
+        finish = True
+        window.blit(win,(300,300))
+    if sprite.collide_rect(player2, tr9):
+        finish = True
+        window.blit(win,(300,300))
+
+    if sprite.collide_rect(player, energ):
+        player.speed *= 1.007
+    if sprite.collide_rect(player, energ2):
+        player.speed *= 1.007    
+        
+
+
+
+
+
+
+
+
+
+
+
     clock.tick(60)
     display.update()
